@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>PORTFOLIO JUANCARLOS</title>
+</head>
+
+<body class="bg-black">
+    <header class="bg-black shadow-md">
+        <nav class="bg-gray-900">
+            <div class="mx-auto w-[80%] px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+
+                    <!-- Logo a la izquierda -->
+                    <div class="flex items-center">
+                        <a href="/" class="text-2xl font-bold text-purple-400 hover:text-purple-300">JC</a>
+                    </div>
+
+                    <!-- Enlaces a la derecha en escritorio -->
+                    <div class="hidden sm:flex space-x-4">
+                        <a href="{% url 'blog:posts' %}"
+                            class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-700 rounded-md transition">
+                            Blog
+                        </a>
+                        <a href="{% static 'portfolio/justificante6755JVX.pdf' %}" target="_blank"
+                            class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-700 rounded-md transition">
+                            Descargar CV
+                        </a>
+                    </div>
+
+                    <!-- Botón de menú hamburguesa (solo en móvil) -->
+                    <div class="sm:hidden">
+                        <button id="mobile-menu-button" type="button"
+                            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Abrir menú</span>
+                            <!-- Icono hamburguesa -->
+                            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú móvil oculto por defecto -->
+            <div class="sm:hidden hidden" id="mobile-menu">
+                <div class="space-y-1 px-4 pt-2 pb-3">
+                    <a href="{% url 'blog:posts' %}"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-700 hover:text-white">
+                        Blog
+                    </a>
+                    <a href="{% static 'portfolio/justificante6755JVX.pdf' %}" target="_blank"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-700 hover:text-white">
+                        Descargar CV
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+
+    <footer class="bg-black text-gray-400 py-6">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+            <p class="text-sm">&copy; {{ now|date:"Y" }} Juan Carlos. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0 items-center">
+
+                <!-- GitHub -->
+                <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-400 hover:text-purple-400 transition flex items-center space-x-1">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.305.763-1.605-2.665-.3-5.467-1.335-5.467-5.933 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.63-5.48 5.926.43.37.823 1.102.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    <span class="hidden sm:inline">GitHub</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-400 hover:text-purple-400 transition flex items-center space-x-1">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.29h-3v-4.5c0-1.08-.92-2-2-2s-2 .92-2 2v4.5h-3v-9h3v1.29c.53-.86 1.5-1.29 2.5-1.29 1.93 0 3.5 1.57 3.5 3.5v5.5z" />
+                    </svg>
+                    <span class="hidden sm:inline">LinkedIn</span>
+                </a>
+
+                <!-- Teléfono -->
+                <div class="flex items-center space-x-1">
+                    <svg class="h-5 w-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2A19.73 19.73 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.13 1.21.56 2.37 1.28 3.41a2 2 0 01-.45 2.11L10.1 11.9a16 16 0 006 6l1.56-1.56a2 2 0 012.11-.45c1.04.72 2.2 1.15 3.41 1.28A2 2 0 0122 16.92z" />
+                    </svg>
+                    <a href="tel:+1234567890" class="hover:text-purple-400 transition">610-92-46-95</a>
+                </div>
+
+                <!-- Email -->
+                <div class="flex items-center space-x-1">
+                    <svg class="h-5 w-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M4 4h16v16H4z" stroke="none" />
+                        <path d="M22 6L12 13 2 6" />
+                    </svg>
+                    <a href="mailto:tu.email@example.com"
+                        class="hover:text-purple-400 transition">jcarlos.vargas.mileti@gmail.com</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn = document.getElementById("mobile-menu-button");
+            const menu = document.getElementById("mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="max-w-3xl mx-auto my-12 px-4 bg-gray-900 rounded-lg shadow-lg border border-purple-700">
+  <h1 class="text-4xl font-bold text-purple-600 mb-6 text-center">Post</h1>
+  
+  <article class="p-6">
+    <h2 class="text-3xl font-semibold text-white mb-2">{{ post.title }}</h2>
+    <h3 class="text-sm text-gray-400 uppercase mb-6">{{ post.date|date:'d M Y' }}</h3>
+    
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full rounded mb-6 object-cover max-h-96 mx-auto" />
+    
+    <div class="prose prose-invert text-gray-300 max-w-none">
+      {{ post.descripcion|safe }}
+    </div>
+  </article>
+</section>
+{% endblock %}
